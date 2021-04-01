@@ -317,26 +317,28 @@ module.exports = class phemex extends Exchange {
     parseSwapMarket (market) {
         //
         //     {
-        //         "symbol":"BTCUSD",
-        //         "displaySymbol":"BTC / USD",
-        //         "indexSymbol":".BTC",
-        //         "markSymbol":".MBTC",
-        //         "fundingRateSymbol":".BTCFR",
-        //         "fundingRate8hSymbol":".BTCFR8H",
-        //         "contractUnderlyingAssets":"USD",
-        //         "settleCurrency":"BTC",
-        //         "quoteCurrency":"USD",
-        //         "contractSize":"1 USD",
-        //         "lotSize":1,
-        //         "tickSize":0.5,
-        //         "priceScale":4,
-        //         "ratioScale":8,
-        //         "pricePrecision":1,
-        //         "minPriceEp":5000,
-        //         "maxPriceEp":10000000000,
-        //         "maxOrderQty":1000000,
-        //         "type":"Perpetual"
-        //         "steps":"50",
+        //         "symbol": 'BTCUSD',
+        //         "displaySymbol": 'BTC / USD',
+        //         "indexSymbol": '.BTC',
+        //         "markSymbol": '.MBTC',
+        //         "fundingRateSymbol": '.BTCFR',
+        //         "fundingRate8hSymbol": '.BTCFR8H',
+        //         "contractUnderlyingAssets": 'USD',
+        //         "settleCurrency": 'BTC',
+        //         "quoteCurrency": 'USD',
+        //         "contractSize": '1 USD',
+        //         "lotSize": '1',
+        //         "tickSize": '0.5',
+        //         "priceScale": '4',
+        //         "ratioScale": '8',
+        //         "pricePrecision": '1',
+        //         "minPriceEp": '5000',
+        //         "maxPriceEp": '100000000000000',
+        //         "maxOrderQty": '1000000',
+        //         "type": 'Perpetual',
+        //         "status": 'Listed',
+        //         "tipOrderQty": 1000000,
+        //         "steps": '50',
         //         "riskLimits":[
         //             {"limit":100,"initialMargin":"1.0%","initialMarginEr":1000000,"maintenanceMargin":"0.5%","maintenanceMarginEr":500000},
         //             {"limit":150,"initialMargin":"1.5%","initialMarginEr":1500000,"maintenanceMargin":"1.0%","maintenanceMarginEr":1000000},
@@ -407,7 +409,8 @@ module.exports = class phemex extends Exchange {
                 'max': this.parseSafeNumber (this.safeString (market, 'maxOrderQty')),
             },
         };
-        const active = undefined;
+        const status = this.safeString (market, 'status');
+        const active = status === 'Listed';
         return {
             'id': id,
             'symbol': symbol,
@@ -457,6 +460,8 @@ module.exports = class phemex extends Exchange {
         //         "defaultMakerFeeEr":100000,
         //         "baseQtyPrecision":6,
         //         "quoteQtyPrecision":2
+        //         "status": 'Listed',
+        //         "tipOrderQty": 20
         //     }
         //
         const type = this.safeStringLower (market, 'type');
