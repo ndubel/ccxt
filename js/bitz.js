@@ -76,6 +76,11 @@ module.exports = class bitz extends Exchange {
                         'currencyRate',
                         'currencyCoinRate',
                         'coinRate',
+                        'getContractCoin',
+                        'getContractKline',
+                        'getContractOrderBook',
+                        'getContractTradesHistory',
+                        'getContractTickers',
                     ],
                 },
                 'trade': {
@@ -88,6 +93,10 @@ module.exports = class bitz extends Exchange {
                         'getUserNowEntrustSheet', // open orders
                         'getEntrustSheetInfo', // order
                         'depositOrWithdraw', // transactions
+                        'getCoinAddress',
+                        'getCoinAddressList',
+                        'marketTrade',
+                        'addEntrustSheetBatch',
                     ],
                 },
                 'assets': {
@@ -95,6 +104,20 @@ module.exports = class bitz extends Exchange {
                         'getUserAssets',
                     ],
                 },
+                'contract': {
+                    'post': [
+                        'addContractTrade',
+                        'cancelContractTrade',
+                        'getContractActivePositions',
+                        'getContractAccountInfo',
+                        'getContractMyPositions',
+                        'getContractOrderResult',
+                        'getContractTradeResult',
+                        'getContractOrder',
+                        'getContractMyHistoryTrade',
+                        'getContractMyTrades',
+                    ],
+                }
             },
             'fees': {
                 'trading': {
