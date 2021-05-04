@@ -115,9 +115,9 @@ module.exports = class poloniex extends Exchange {
             'fees': {
                 'trading': {
                     'feeSide': 'get',
-                    // starting from Jan 8 2020
-                    'maker': 0.0009,
-                    'taker': 0.0009,
+                    // starting from May 4 2021
+                    'maker': 0.00145,
+                    'taker': 0.00155,
                 },
                 'funding': {},
             },
