@@ -5,7 +5,7 @@ import { ExchangeError, BadRequest, PermissionDenied, BadSymbol, NotSupported, I
 import { TICK_SIZE } from './base/functions/number.js';
 import { Int, OrderSide } from './base/types.js';
 
-//  ---------------------------------------------------------------------------xs
+//  ---------------------------------------------------------------------------x
 
 export default class alpaca extends Exchange {
     describe () {
