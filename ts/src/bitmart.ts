@@ -1,6 +1,6 @@
 
 //  ---------------------------------------------------------------------------
-
+https://developer-pro.bitmart.com/en/spot/#current-open-orders-v4-signed
 import Exchange from './abstract/bitmart.js';
 import { AuthenticationError, ExchangeNotAvailable, AccountSuspended, PermissionDenied, RateLimitExceeded, InvalidNonce, InvalidAddress, ArgumentsRequired, ExchangeError, InvalidOrder, InsufficientFunds, BadRequest, OrderNotFound, BadSymbol, NotSupported } from './base/errors.js';
 import { Precise } from './base/Precise.js';
@@ -2109,7 +2109,7 @@ export default class bitmart extends Exchange {
                 '7': 'canceling', // Canceling
                 '8': 'canceled', // Canceled
                 'new': 'open',
-                'partially_filled': 'filled',
+                'partially_filled': 'open',
                 'filled': 'filled',
                 'partially_canceled': 'canceled',
             },
