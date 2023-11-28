@@ -958,6 +958,7 @@ export default class bitget extends Exchange {
                     '34037': ExchangeError, // Get the sub-account balance interface, account type is not supported
                     '34038': ExchangeError, // Since your C2C transaction is unusual, you are restricted from fund transfer. Please contact our customer support to cancel the restriction
                     '34039': ExchangeError, // You are now restricted from transferring out your funds due to abnormal trades on C2C Market. Please transfer your fund on our website or app instead to verify your identity
+                    '40022': AccountSuspended, // {"code":"40022","msg":"The business of this account has been restricted","requestTime":1701174668685,"data":null}
                     // swap
                     '35001': ExchangeError, // { "code": 35001, "message": "Contract does not exist" }
                     '35002': ExchangeError, // { "code": 35002, "message": "Contract settling" }
