@@ -3274,6 +3274,19 @@ export default class phemex extends Exchange {
         const statuses = {
             'Success': 'ok',
             'Succeed': 'ok',
+            'Confirmed': 'ok',
+            'Security Checking': 'pending',
+            'SecurityChecking': 'pending',
+            'Pending Review': 'pending',
+            'Pending Transfer': 'pending',
+            'AmlCsApporve': 'pending',
+            'New': 'pending',
+            'Rejected': 'failed',
+            'Security check failed': 'failed',
+            'SecurityCheckFailed': 'failed',
+            'Address Risk': 'failed',
+            'Expired': 'failed',
+            'Cancelled': 'canceled',
         };
         return this.safeString (statuses, status, status);
     }
