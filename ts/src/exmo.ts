@@ -2189,6 +2189,7 @@ export default class exmo extends Exchange {
         const statuses = {
             'transferred': 'ok',
             'paid': 'ok',
+            'confirmation': 'pending',
             'pending': 'pending',
             'processing': 'pending',
             'verifying': 'pending',
