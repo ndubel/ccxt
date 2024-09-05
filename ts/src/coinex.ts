@@ -1203,10 +1203,13 @@ export default class coinex extends Exchange {
         //         "amount": "0.00010087",
         //         "created_at": 1714618087585,
         //         "deal_id": 4161200602,
+        //         "fee": "0",
+        //         "fee_ccy": "USDT",
         //         "margin_market": "",
         //         "market": "BTCUSDT",
         //         "order_id": 117654919342,
         //         "price": "57464.04",
+        //         "role": "maker"
         //         "side": "sell"
         //     }
         //
@@ -1229,6 +1232,16 @@ export default class coinex extends Exchange {
         }
         const marketId = this.safeString (trade, 'market');
         market = this.safeMarket (marketId, market, undefined, defaultType);
+        const feeCostString = this.safeString (trade, 'fee');
+        let fee = undefined;
+        if (feeCostString !== undefined) {
+            const feeCurrencyId = this.safeString (trade, 'fee_ccy');
+            const feeCurrencyCode = this.safeCurrencyCode (feeCurrencyId);
+            fee = {
+                'cost': feeCostString,
+                'currency': feeCurrencyCode,
+            };
+        }
         return this.safeTrade ({
             'info': trade,
             'timestamp': timestamp,
@@ -1238,11 +1251,11 @@ export default class coinex extends Exchange {
             'order': this.safeString (trade, 'order_id'),
             'type': undefined,
             'side': this.safeString (trade, 'side'),
-            'takerOrMaker': undefined,
+            'takerOrMaker': this.safeString (trade, 'role'),
             'price': this.safeString (trade, 'price'),
             'amount': this.safeString (trade, 'amount'),
             'cost': this.safeString (trade, 'deal_money'),
-            'fee': undefined,
+            'fee': fee,
         }, market);
     }
 
